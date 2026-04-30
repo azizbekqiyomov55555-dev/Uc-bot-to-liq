@@ -1,0 +1,22 @@
+app = 'akvutsavdo-bot'
+primary_region = 'fra'
+kill_signal = 'SIGINT'
+kill_timeout = '5s'
+
+[build]
+
+[env]
+  DB_PATH = '/data/bot_database.db'
+  TZ = 'Asia/Tashkent'
+
+[processes]
+  app = 'python main.py'
+
+[[mounts]]
+  source = 'botdata'
+  destination = '/data'
+
+[[vm]]
+  cpu_kind = 'shared'
+  cpus = 1
+  memory_mb = 512
